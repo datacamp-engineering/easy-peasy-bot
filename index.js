@@ -79,10 +79,14 @@ controller.on('rtm_close', function (bot) {
 /**
  * Core bot logic goes here!
  */
-// BEGIN EDITING HERE!
+ controller.hears('Who runs the standup?', ['direct_mention', 'direct_message', 'mention'], function(bot,message) {
+    var team_members = ['mcls', 'pieter', 'ignacy', 'marcin', 'clovis', 'shanthi']
+    var random_member = team_members[Math.floor(Math.random()*team_members.length)];
+     bot.reply(message, "Hi main squad! <@" + random_member + "> will run the standup! Good Luck!");
+ });
 
 controller.on('bot_channel_join', function (bot, message) {
-    bot.reply(message, "I'm here!")
+    bot.reply(message, "I'm here, ready to make your live easier!")
 });
 
 controller.hears('hello', 'direct_message', function (bot, message) {
