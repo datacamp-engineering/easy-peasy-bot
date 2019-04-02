@@ -26,16 +26,12 @@ function onInstallation(bot, installer) {
  * Configure the persistence options
  */
 
-var config = {};
+var config = { clientSigningSecret: process.env.CLIENT_SIGNING_SECRET };
 if (process.env.MONGOLAB_URI) {
     var BotkitStorage = require('botkit-storage-mongo');
-    config = {
-        storage: BotkitStorage({mongoUri: process.env.MONGOLAB_URI}),
-    };
+    config.storage = BotkitStorage({mongoUri: process.env.MONGOLAB_URI});
 } else {
-    config = {
-        json_file_store: ((process.env.TOKEN)?'./db_slack_bot_ci/':'./db_slack_bot_a/'), //use a different name if an app or CI
-    };
+    config.json_file_store = ((process.env.TOKEN)?'./db_slack_bot_ci/':'./db_slack_bot_a/'); //use a different name if an app or CI
 }
 
 /**
