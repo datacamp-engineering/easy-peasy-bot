@@ -76,7 +76,8 @@ controller.on('rtm_close', function (bot) {
  * Core bot logic goes here!
  */
  controller.hears('Who runs the standup?', ['direct_mention', 'direct_message', 'mention'], function(bot,message) {
-    var team_members = ['mcls', 'pieter', 'ignacy', 'marcin', 'clovis', 'shanthi']
+    //                   Maarten      Pieter       Ignacy       Marcin       Clovis       Shanthi
+    var team_members = ['U2F4P7WG0', 'U4HCAVC66', 'U4Q97VDS5', 'U6DCLJTNJ', 'U92KN6UTW', 'U92KN6UTW']
     var random_member = team_members[Math.floor(Math.random()*team_members.length)];
      bot.reply(message, "Hi main squad! <@" + random_member + "> will run the standup! Good Luck!");
  });
